@@ -47,11 +47,24 @@
                                     <li>/logout 退出登录页面</li>
                                 </ul>
                             </td>
-                            <td>经理页面</td>
+                            <td>经理</td>
                         </tr>
                     </tbody>
                 </table>
 
+				<p>顶部有面包屑导航, 可以点击导航进行页面跳转测试. 表格里提到的规则授权, 配置如下: </p>
+
+				<p>
+					<code>
+						<pre>
+AlanAuth.map("/", ["guest", "employee", "manager"])
+.map("/login", ["guest"], "/personal")
+.map(["/personal", "/logout"], ["employee", "manager"], "/login")     // employee和manager都可以访问/logout和/personal
+.map("/salary", "employee", "/personal")     // 只有employee可以访问/salary, 其他角色访问会跳转到/personal页面, 对于guest角色, 先跳转到/personal, 又从/personal跳转到/login
+.map("/employee", "manager", "/login");   // 只有manager可以访问/employee
+						</pre>
+					</code>
+				</p>
             </p>
         </div>
     </div>
