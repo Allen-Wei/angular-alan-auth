@@ -4,9 +4,6 @@ angular.module("app.controllers.login", [
 ])
 .controller("LogInCtrl", function (User, $location) {
     this.roles = [{
-        name: "访客",
-        value: "guest"
-    }, {
         name: "员工",
         value: "employee"
     }, {
