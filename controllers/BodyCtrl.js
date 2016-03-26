@@ -1,3 +1,4 @@
 angular.module("app.controllers.body", [])
-    .controller("BodyCtrl", function () {
+    .controller("BodyCtrl", function (User) {
+		main.user = User;
     });

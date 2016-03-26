@@ -24,16 +24,18 @@
 
 <body>
     <div ng-app="AlanAuthTestApp">
-        <ul class="breadcrumb">
-            <li> <a href="#/">Home</a> </li>
-            <li> <a href="#/login">Log In</a> </li>
-            <li> <a href="#/personal">Personal</a> </li>
-            <li> <a href="#/employee">Employee</a> </li>
-            <li> <a href="#/salary">Salary</a> </li>
-            <li> <a href="#/logout">Log Out</a> </li>
-        </ul>
+    
         <div ng-controller="BodyCtrl">
-            <div ng-view></div>
+			<ul class="breadcrumb">
+				<li> <a href="#/">Home</a> </li>
+				<li> <a href="#/login">Log In</a> </li>
+				<li> <a href="#/personal">Personal</a> </li>
+				<li> <a href="#/employee">Employee</a> </li>
+				<li> <a href="#/salary">Salary</a> </li>
+				<li> <a href="#/logout">Log Out</a> </li>
+				<li> 当前用户角色: {{main.user.role}} </li>
+			</ul>
+			<div ng-view></div>
         </div>
     </div>
 </body>
