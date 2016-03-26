@@ -1,34 +1,34 @@
-# angular-alan-auth
+ï»¿# angular-alan-auth
 
 AngularJS Authorize Module.
 
-·ÃÎÊ[Demo](http://github.alanwei.net/angular-alan-auth/app.html)²é¿´ÑİÊ¾. DemoÔ´ÂëÇë·ÃÎÊ[gh-pages](https://github.com/Allen-Wei/angular-alan-auth/tree/gh-pages).
+è®¿é—®[Demo](http://github.alanwei.net/angular-alan-auth/app.html)æŸ¥çœ‹æ¼”ç¤º. Demoæºç è¯·è®¿é—®[gh-pages](https://github.com/Allen-Wei/angular-alan-auth/tree/gh-pages).
 
 ## Install
 	
-ÔÚÒıÓÃ`angular.js`Ö®ºóÒıÓÃ`alan-auth.js`
+åœ¨å¼•ç”¨`angular.js`ä¹‹åå¼•ç”¨`alan-auth.js`
 
 	<script src="https://cdn.rawgit.com/Allen-Wei/angular-alan-auth/master/src/alan-auth.js"></script>
 
 ## Use
 
-Ê×ÏÈĞèÒª×¢Èë`alanAuth`Ä£¿é, ¾ÍÏñ×¢Èë`ngRoute`µÈÄ£¿éÒ»Ñù.
+é¦–å…ˆéœ€è¦æ³¨å…¥`alanAuth`æ¨¡å—, å°±åƒæ³¨å…¥`ngRoute`ç­‰æ¨¡å—ä¸€æ ·.
 
-È»ºóÅäÖÃ»ùÓÚURLµÄÈ¨ÏŞÓ³Éä, ÕâÒ»²½×îºÃÔÚ`angular.run(...)`ÀïÅäÖÃ.
+ç„¶åé…ç½®åŸºäºURLçš„æƒé™æ˜ å°„, è¿™ä¸€æ­¥æœ€å¥½åœ¨`angular.run(...)`é‡Œé…ç½®.
 
-`AlanAuth.setIsInRole()`·½·¨ÓÃÓÚÉèÖÃÒ»¸ö·½·¨, Õâ¸ö·½·¨ÓÃÀ´Ğ£Ñéµ±Ç°ÓÃ»§ÊÇ·ñÓµÓĞÄ³¸ö½ÇÉ«, ·½·¨µÄµÚÒ»¸ö²ÎÊıÊÇµ±Ç°Ö´ĞĞÒ³ÃæËùÔÊĞí·ÃÎÊµÄ½ÇÉ«Êı×é.
+`AlanAuth.setIsInRole()`æ–¹æ³•ç”¨äºè®¾ç½®ä¸€ä¸ªæ–¹æ³•, è¿™ä¸ªæ–¹æ³•ç”¨æ¥æ ¡éªŒå½“å‰ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æŸä¸ªè§’è‰², æ–¹æ³•çš„ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å½“å‰æ‰§è¡Œé¡µé¢æ‰€å…è®¸è®¿é—®çš„è§’è‰²æ•°ç»„.
 
-`AlanAuth.map(urls or controllers, roles, redirect)`, Õâ¸ö·½·¨ÓÃÓÚÅäÖÃÄÄĞ©½ÇÉ«¿ÉÒÔ·ÃÎÊÖ¸¶¨µÄÒ³Ãæ/¿ØÖÆÆ÷.
+`AlanAuth.map(urls or controllers, roles, redirect)`, è¿™ä¸ªæ–¹æ³•ç”¨äºé…ç½®å“ªäº›è§’è‰²å¯ä»¥è®¿é—®æŒ‡å®šçš„é¡µé¢/æ§åˆ¶å™¨.
 
-1. µÚÒ»¸ö²ÎÊıÊÇURLµØÖ·»òÕß¿ØÖÆÆ÷Ãû³Æ, ¿ÉÒÔÊÇÒ»¸öÊı×é, Ò²¿ÉÒÔÊÇÒ»¸ö×Ö·û´®.
-2. µÚ¶ş¸ö²ÎÊıÊÇÔÊĞí·ÃÎÊµÄ½ÇÉ«, ¿ÉÒÔÊÇµ¥¸ö½ÇÉ«×Ö·û´®, Ò²¿ÉÒÔÊÇÒ»¸ö±êÊ¶¶à¸ö½ÇÉ«µÄ×Ö·û´®Êı×é.
-3. µÚÈı¸ö²ÎÊı¿ÉÒÔÊÇÒ»¸öº¯Êı, Ò²¿ÉÒÔÊÇÒ»¸ö×Ö·û´®. µ±È¨ÏŞĞ£ÑéÊ§°Ü(setIsInRoleÉèÖÃµÄº¯Êı·µ»Øfalse)Ê±, Èç¹ûÕâ¸ö²ÎÊıÊÇº¯Êı»áÖ´ĞĞÕâ¸öº¯Êı, Èç¹ûÊÇ×Ö·û´®»áÌø×ªµ½×Ö·û´®Ö¸¶¨µÄÒ³Ãæ, Èç¹û×Ö·û´®ÒÔ`#`¿ªÍ·, Ê¹ÓÃ `location.href = redirect` µÄ·½Ê½Ìø×ª, Èç¹û×Ö·û´®ÒÔ`~`¿ªÍ·, ÔòÈ¥µô`~`, Ê¹ÓÃ `location.href = redirect`Ìø×ª, ÆäËûÇé¿öÊ¹ÓÃ `$location.path(redirect)` Ö´ĞĞÌø×ª.
+1. ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯URLåœ°å€æˆ–è€…æ§åˆ¶å™¨åç§°, å¯ä»¥æ˜¯ä¸€ä¸ªæ•°ç»„, ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸².
+2. ç¬¬äºŒä¸ªå‚æ•°æ˜¯å…è®¸è®¿é—®çš„è§’è‰², å¯ä»¥æ˜¯å•ä¸ªè§’è‰²å­—ç¬¦ä¸², ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªæ ‡è¯†å¤šä¸ªè§’è‰²çš„å­—ç¬¦ä¸²æ•°ç»„.
+3. ç¬¬ä¸‰ä¸ªå‚æ•°å¯ä»¥æ˜¯ä¸€ä¸ªå‡½æ•°, ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸². å½“æƒé™æ ¡éªŒå¤±è´¥(setIsInRoleè®¾ç½®çš„å‡½æ•°è¿”å›false)æ—¶, å¦‚æœè¿™ä¸ªå‚æ•°æ˜¯å‡½æ•°ä¼šæ‰§è¡Œè¿™ä¸ªå‡½æ•°, å¦‚æœæ˜¯å­—ç¬¦ä¸²ä¼šè·³è½¬åˆ°å­—ç¬¦ä¸²æŒ‡å®šçš„é¡µé¢, å¦‚æœå­—ç¬¦ä¸²ä»¥`#`å¼€å¤´, ä½¿ç”¨ `location.href = redirect` çš„æ–¹å¼è·³è½¬, å¦‚æœå­—ç¬¦ä¸²ä»¥`~`å¼€å¤´, åˆ™å»æ‰`~`, ä½¿ç”¨ `location.href = redirect`è·³è½¬, å…¶ä»–æƒ…å†µä½¿ç”¨ `$location.path(redirect)` æ‰§è¡Œè·³è½¬.
 
 
 
 	angular.module("your app name", [/*your else modules*/, "alanAuth"]).run(function(AlanAuth){
 		AlanAuth.setIsInRole(function(roles, controller){
-			//Ö´ĞĞ½ÇÉ«¼ì²é ²¢·µ»Øtrue/false.
+			//æ‰§è¡Œè§’è‰²æ£€æŸ¥ å¹¶è¿”å›true/false.
 		})
 		.map(url, role name, redirect url when unauth)
 		.map(....);
