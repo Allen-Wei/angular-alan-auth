@@ -9,6 +9,7 @@ angular.module("AlanAuthTestApp", [
 	"app.services",
 	"alanAuth"
 ]).run(function (AlanAuth, User) {
+
     User.role = "guest";
 
     AlanAuth.setIsInRole((roles, ctrl) => { return roles.indexOf(User.role) !== -1; })
