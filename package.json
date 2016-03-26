@@ -1,0 +1,26 @@
+{
+  "name": "angular-auth",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allen-Wei/angular-auth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Allen-Wei/angular-auth/issues"
+  },
+  "homepage": "https://github.com/Allen-Wei/angular-auth#readme",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "grunt": "^0.4.5"
+  }
+}
