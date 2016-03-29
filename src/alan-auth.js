@@ -44,14 +44,17 @@
                  * 添加控制器和角色之间的映射
                  * @param {string[]} controllersOrPaths 控制器名称或者页面URL, 可以是字符串或者字符串数组
                  * @param {string[]/function} allowRoles 对应的角色名, 字符串数组或者是个函数(如果是个函数则需要函数自己实现跳转等逻辑)
+                 * @param {string/function} redirect 可以是一个字符串或者一个回调函数
                  * @returns AlanAuth
                  */
                 map: function (controllersOrPaths, allowRoles, redirect) {
 
-                    //controllersOrPaths: 可以是一个表示控制器名称的字符串或者表示URL的字符串, 也可以是同时包含这两种类型的数组
+                    //判断是否是空字符串
                     if (isValidString(controllersOrPaths)) {
                         controllersOrPaths = [controllersOrPaths];
                     }
+
+                    //controllersOrPaths: 可以是一个表示控制器名称的字符串或者表示URL的字符串, 也可以是同时包含这两种类型的数组
                     if (!angular.isArray(controllersOrPaths)) {
                         throw "AlanAuth.map: parameter controllersOrPaths must be string or an array."
                     }
