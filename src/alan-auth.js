@@ -10,7 +10,7 @@
 
 (function () {
     angular.module("alanAuth", [])
-        .factory("AlanAuth", function ($location) {
+        .factory("AlanAuth", function ($location, $route) {
             // utils function
             var isValidString = function (value) {
                 return angular.isString(value) && !/^\s*$/g.test(value);
@@ -26,7 +26,7 @@
             var maps = { "controller name or path": { roles: [], redirect: function () { } } };
 
             var service = {
-                version: "0.0.1",
+                version: "0.0.2",
                 globalConfigName: "__global1021",
 
                 /*
@@ -129,6 +129,39 @@
                         return this;
                     }
 
+                },
+
+                /**
+                 * 获取当前控制新信息
+                 * @returns {} 
+                 */
+                getCurrentCtrl: function () {
+                    var currentPath = $location.path();
+
+                    var controller = {
+                        path: currentPath,
+                        name: undefined,
+                        templateUrl: undefined
+                    };
+
+                    for (var key in $route.routes) {
+                        var route = $route.routes[key];
+                        if (!route.regexp) {
+                            continue;
+                        }
+                        var isCurrent = route.regexp.test(currentPath);
+                        if (isCurrent) {
+                            var controllerMatch = /^((\w|\d)+)/g.exec(route.controller);
+                            if (!controllerMatch) {
+                                throw "AuthSvc: get controller name error";
+                            }
+                            var controllerName = controllerMatch[0];
+                            controller.name = controllerName;
+                            controller.templateUrl = route.templateUrl;
+                            break;
+                        }
+                    }
+                    return controller;
                 }
             };
             return service;
@@ -150,31 +183,7 @@
             //监听路由改变事件
             $rootScope.$on("$routeChangeStart", function () {
 
-                var currentPath = $location.path();
-
-                var controller = {
-                    path: currentPath,
-                    name: undefined,
-                    templateUrl: undefined
-                };
-
-                for (var key in $route.routes) {
-                    var route = $route.routes[key];
-                    if (!route.regexp) {
-                        continue;
-                    }
-                    var isCurrent = route.regexp.test(currentPath);
-                    if (isCurrent) {
-                        var controllerMatch = /^((\w|\d)+)/g.exec(route.controller);
-                        if (!controllerMatch) {
-                            throw "AuthSvc: get controller name error";
-                        }
-                        var controllerName = controllerMatch[0];
-                        controller.name = controllerName;
-                        controller.templateUrl = route.templateUrl;
-                        break;
-                    }
-                }
+                var controller = AlanAuth.getCurrentCtrl();
 
                 AlanAuth.auth(controller);
             });
