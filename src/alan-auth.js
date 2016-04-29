@@ -26,8 +26,9 @@
             var maps = { "controller name or path": { roles: [], redirect: function () { } } };
 
             var service = {
-                version: "0.0.2",
+                version: "0.0.3",
                 globalConfigName: "__global1021",
+                working: true,  //模块是否开始执行的开关
 
                 /*
                  * 判断当前用户是否拥有其中的某个角色,调用参数: isInRole(roles, controllers)
@@ -101,6 +102,9 @@
                  * @returns {} 
                  */
                 auth: function (controller) {
+                    if(!this.working){return this;}
+
+
                     var empty = {
                         roles: [],
                         redirect: function () {
