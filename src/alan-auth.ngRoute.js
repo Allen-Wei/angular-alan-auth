@@ -9,7 +9,7 @@
  */
 
 (function () {
-    angular.module("alanAuth", [])
+    angular.module("alanAuth", ["ngRoute"])
         .factory("AlanAuth", function ($location, $route) {
             // utils function
             var isValidString = function (value) {
