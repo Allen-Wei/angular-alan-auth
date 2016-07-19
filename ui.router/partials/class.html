@@ -1,0 +1,14 @@
+﻿
+<div class="row">
+    <div class="col-sm-6">
+        <h5>Class List</h5>
+        <ol class="list-group">
+            <li class="list-group-item" ng-repeat="c in main.classes">
+                <a ui-sref=".detail({name: c.name})">{{c.name}} {{c.textRaw}}</a>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-6">
+        <div ui-view></div>
+    </div>
+</div>

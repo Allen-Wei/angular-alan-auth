@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>UI.Router Authorize</title>
+    <meta charset="utf-8" />
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-ui-router-v0.2.18.js"></script>
+    <script src="vendor/alan-auth.js"></script>
+    <script src="nodejs.api.json.js"></script>
+</head>
+<body ng-app="UiRouterDemo">
+
+    <div ng-controller="BodyCtrl as main">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="home">Home</a>
+            </li>
+            <li>
+                <a ui-sref="module">Modules</a>
+            </li>
+            <li>
+                <a ui-sref="class">Class</a>
+            </li>
+        </ul>
+        <div class="container">
+            <div>当前用户角色: {{main.current.role}}</div>
+            <hr />
+            <div ui-view></div>
+        </div>
+    </div>
+
+    <script src="app.js"> </script>
+
+</body>
+</html>

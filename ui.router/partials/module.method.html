@@ -1,0 +1,6 @@
+﻿
+<h5>{{main.module.displayName}}</h5>
+<div ng-hide="main.module.methods.length">No methods.</div>
+<ul class="list-group" ng-show="main.module.methods.length">
+    <li class="list-group-item" ng-repeat="method in main.module.methods"><code> {{method.textRaw}}</code></li>
+</ul>

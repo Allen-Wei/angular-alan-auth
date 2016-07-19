@@ -1,0 +1,49 @@
+﻿
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>状态</th>
+                    <th>允许访问的角色</th>
+                    <th>跳转到的状态</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>module</code> <code>module.method</code>
+                    </td>
+                    <td>
+                        <i>module</i>
+                    </td>
+                    <td>home</td>
+                    <td>
+                        <code>module</code>和<code>module.method</code>状态只能是 <i>module</i>的角色访问, 其他角色访问跳转到<code>home</code>状态.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>class</code> <code>class.detail</code>
+                    </td>
+                    <td>
+                        <i>class</i>
+                    </td>
+                    <td>home</td>
+                    <td>
+                        <code>class</code>和<code>class.detail</code>状态只能是 <i>class</i>的角色访问, 其他角色访问跳转到<code>home</code>状态.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12">
+        设置用户角色:
+        <select ng-model="main.user.role">
+            <option value="guest">Guest</option>
+            <option value="class">Class</option>
+            <option value="module">Module</option>
+        </select>
+    </div>
+</div>
