@@ -107,9 +107,7 @@
 
                     var empty = {
                         roles: [],
-                        redirect: function () {
-                            console.info("AlanAuth.auth: empty redirect function.");
-                        }
+                        redirect: undefined
                     };
                     var globalMaps = maps[this.globalConfigName] || empty;
                     var ctrlMaps = maps[controller.name] || empty;

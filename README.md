@@ -42,6 +42,7 @@ Angular ui-router authorize module.
 ## 使用大致类似于上面的为`ng-route`
 
 CDN 
+
 	<script src="https://cdn.rawgit.com/Allen-Wei/angular-alan-auth/master/src/alan-auth.ui-router.js"></script>
 
 `AlanAuth.map(urls or state names, roles, redirect)` 这个函数的第一个参数的含义变成了URL或者状态名称了, 而不是之前的URL或者控制器名称了.

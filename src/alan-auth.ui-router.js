@@ -91,12 +91,12 @@
                                 }
                             } else {
                                 redirectFn = function () {
-                                    $location.path(redirect);
+                                    //$location.path(redirect);
+                                    $state.go(redirect);
                                 }
                             }
                         }
                     }
-
 
 
                     angular.forEach(stateOrPaths, function (ctrlOrPath) {
@@ -111,6 +111,7 @@
                             maps[ctrlOrPath].redirect = redirectFn;
                         }
                     });
+
                     return this;
                 },
 
@@ -127,16 +128,14 @@
 
                     var empty = {
                         roles: [],
-                        redirect: function () {
-                            console.info("AlanAuthUiRouter.auth: empty redirect function.");
-                        }
+                        redirect: undefined
                     };
                     var globalMaps = maps[this.globalConfigName] || empty;
-                    var ctrlMaps = maps[params.name] || empty;
+                    var stateMaps = maps[params.name] || empty;
                     var pathMaps = maps[params.path] || empty;
 
-                    var allRoles = globalMaps.roles.concat(ctrlMaps.roles).concat(pathMaps.roles);
-                    var redirect = pathMaps.redirect || ctrlMaps.redirect || globalMaps.redirect;
+                    var allRoles = globalMaps.roles.concat(stateMaps.roles).concat(pathMaps.roles);
+                    var redirect = pathMaps.redirect || stateMaps.redirect || globalMaps.redirect;
 
                     if (!allRoles.length) {
                         console.info("AlanAuthUiRouter.auth: not found maps.");
@@ -172,13 +171,13 @@
             };
             return service;
         })
-        .run(["AlanAuthUiRouter", "$rootScope", "$location", function (AlanAuthUiRouter, $rootScope, $location) {
+        .run(["AlanAuthUiRouter", "$rootScope", "$location", function (AlanAuthUiRouter, $rootScope) {
 
             /*
              * 
-             * route change events:
+             * state change events:
              * 
-             * $routeChangeStart
+             * $stateChangeStart
              * $stateChangeSuccess 
              * 
              */
@@ -186,14 +185,7 @@
 
             //监听状态改变事件
             $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
-
-                var info = {
-                    name: toState.name,
-                    path: $location.path(),
-                    templateUrl: toState.templateUrl
-                };
                 var params = AlanAuthUiRouter.getCurrentParams();
-                console.log(info, params);
 
                 AlanAuthUiRouter.auth(params);
             });
