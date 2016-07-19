@@ -4,6 +4,7 @@
  * @created: 2016-07-19 14:21:18
  * @version: 0.0.1
  * @issues: https://github.com/Allen-Wei/angular-auth/issues
+ * @update: 2016-07-19 17:32:03
  * 
  * 为 ui-router(https://github.com/angular-ui/ui-router) 设计
  */
